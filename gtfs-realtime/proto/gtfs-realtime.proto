@@ -654,3 +654,19 @@ message TranslatedString {
   // modifications to the spec.
   extensions 1000 to 1999;
 }
+
+message AlertTimestampExtension {
+
+  //Time alert is created, in POSIX time (i.e., number of seconds since January 1st 1970 00:00:00 UTC)
+  optional uint64 created_timestamp = 1;
+  
+  //Time alert is last modified, in POSIX time (i.e., number of seconds since January 1st 1970 00:00:00 UTC)
+  optional uint64 last_modified_timestamp = 2;
+ 
+  //Time alert is closed, in POSIX time (i.e., number of seconds since January 1st 1970 00:00:00 UTC) 
+  optional uint64 closed_timestamp = 3;
+}
+
+extend transit_realtime.Alert {
+	optional AlertTimestampExtension alert_timestamp_extension = 1010;
+}
