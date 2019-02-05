@@ -655,7 +655,7 @@ message TranslatedString {
   extensions 1000 to 1999;
 }
 
-message AlertTimestampExtension {
+message IBIAlertExtension {
 
   //Time alert is created, in POSIX time (i.e., number of seconds since January 1st 1970 00:00:00 UTC)
   optional uint64 created_timestamp = 1;
@@ -668,5 +668,5 @@ message AlertTimestampExtension {
 }
 
 extend transit_realtime.Alert {
-	optional AlertTimestampExtension alert_timestamp_extension = 1010;
+	optional IBIAlertExtension ibi_alert_extension = 1010;
 }
